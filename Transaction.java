@@ -1,14 +1,10 @@
-enum type {
-    deposit,
-    withdrawal
-}
-
 public class Transaction {
     private String date;
     private float amount;
-    private type type;
+    private Type type;
+    public Transaction next;
 
-    public Transaction(String date, float amount, type type) {
+    public Transaction(String date, float amount, Type type) {
         this.date = date;
         this.amount = amount;
         this.type = type;
@@ -30,11 +26,11 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public type getType() {
+    public Type getType() {
         return this.type;
     }
 
-    public void setType(type type) {
+    public void setType(Type type) {
         this.type = type;
     }
 
