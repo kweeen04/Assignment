@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 public class TransactionAnalyzer {
     public Transaction transaction;
@@ -11,7 +13,17 @@ public class TransactionAnalyzer {
         this.user = user;
     }
 
-    
+    Random random = new Random();
+    ArrayList<Transaction> transactions = new ArrayList<>();
+    for (int i = 0; i < 50; i++) {
+        String date = new Date().toString();
+        float amount = random.nextFloat() * 20000 - 10000;
+        Type type = random.nextBoolean() ? Type.deposit : Type.withdraw;
+
+        Transaction transaction = new Transaction(date, amount, type);
+        transactions.add(transaction);
+    }
+
 
     public List<Float> calculateBalanceHistory() {
         float balance = 0;
@@ -27,5 +39,5 @@ public class TransactionAnalyzer {
         return res;
     }
 
-
+    
 }
